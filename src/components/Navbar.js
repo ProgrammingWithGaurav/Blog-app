@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['Posts', 'New', 'About us'];
+const pages = ['Posts', 'Create', 'About us'];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -34,7 +34,6 @@ const Navbar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
     return (
         <div className='app'>
             <AppBar position="static">
@@ -91,7 +90,7 @@ const Navbar = () => {
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                         >
-                            LOGO
+                            iBlogger
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page) => (

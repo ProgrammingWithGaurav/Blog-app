@@ -1,6 +1,7 @@
 import { Button } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 function Home() {
     return (
@@ -9,7 +10,7 @@ function Home() {
             <div className="about">
                 <h1>iBlogger is a place to write, read, and connect</h1>
                 <p>It's easy and free to post your thinking on any topic and connect with millions of readers.</p>
-                <Button variant='outlined' color='inherit'>Start Writing</Button>
+                <Link to='/login' style={{all: 'unset'}}><Button variant='outlined' color='inherit'>Start Writing</Button></Link>
             </div>
         </Container>
     )
@@ -21,7 +22,8 @@ const Container = styled.div`
     position: relative;
     img {
         width: 100vw;
-        height: 350px;
+        height: 400px;
+        min-height: 50vh:
         object-fit: cover;
     }
     div {
