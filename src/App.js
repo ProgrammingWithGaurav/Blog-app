@@ -1,10 +1,12 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
-// import CameraIcon from '@mui/icons-material/Camera'
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className='app'>
+    <div>
+      <Navbar />
+      <Home />
     </div>
   )
 }
