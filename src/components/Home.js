@@ -10,7 +10,7 @@ function Home() {
             <div className="about">
                 <h1>iBlogger is a place to write, read, and connect</h1>
                 <p>It's easy and free to post your thinking on any topic and connect with millions of readers.</p>
-                <Link to='/login' style={{all: 'unset'}}><Button variant='outlined' color='inherit'>Start Writing</Button></Link>
+                <Button variant='outlined' color='inherit'>Start Writing</Button>
             </div>
         </Container>
     )

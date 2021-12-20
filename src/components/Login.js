@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { auth } from 'firebase';
+import { provider } from '../firebase';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/appSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
     return (
@@ -29,6 +34,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -39,6 +47,17 @@ export default function Login() {
         });
     };
 
+    const googleLogin = () => {
+        auth().signInWithPopup(provider)
+            .then(result => {
+                dispatch(login({
+                    username: result.user.displayName,
+                    profilePic: result.user.photoURL,
+                    id: result.user.uid
+                }))
+                navigate('/');
+            }).catch(err => alert(err.message))
+    }
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -92,10 +111,10 @@ export default function Login() {
                         </Button>
                         <Grid container spacing={4}>
                             <Grid item xl={12}>
-                                <Typography variant='h5'>Or</Typography>                        
+                                <Typography variant='h5'>Or</Typography>
                             </Grid>
                             <Grid item xs={12} textAlign="center">
-                                <Button color="primary" variant="contained">Login with Google <strong style={{marginLeft: '10px'}}>g</strong></Button>                     
+                                <Button onClick={googleLogin} color="primary" variant="contained">Login with Google <strong style={{ marginLeft: '10px' }}>g</strong></Button>
                             </Grid>
                         </Grid>
                     </Box>
