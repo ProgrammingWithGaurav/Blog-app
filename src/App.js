@@ -6,6 +6,7 @@ import Login from './components/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/appSlice';
 import { auth } from 'firebase';
+import Posts from './components/Posts';
 
 function App() {
   const user = useSelector(selectUser);
@@ -23,7 +24,7 @@ function App() {
         dispatch(logout())
       }
     })
-  }, [])
+  }, [dispatch])
   return (
     <div className='app' >
       <Router>
@@ -34,7 +35,7 @@ function App() {
             <Navbar />
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/login' element={<Login />} />
+              <Route path='/posts' element={<Posts />} />
             </Routes>
 
           </>
@@ -44,5 +45,4 @@ function App() {
     </div>
   )
 }
-
 export default App
