@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
+import View from './components/View';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/appSlice';
 import { auth } from 'firebase';
@@ -36,6 +37,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/posts' element={<Posts />} />
+              <Route path='/view-post' element={<View />} />
             </Routes>
 
           </>

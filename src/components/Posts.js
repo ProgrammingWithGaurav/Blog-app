@@ -22,7 +22,7 @@ function Posts() {
             {
                 posts.map(({ id, data: { blogpost_img, title, description, cardImg, timestamp, body } }) => {
                     return (
-                        <Post key={id} blogpost_img={blogpost_img} title={title} description={description} cardImg={cardImg} timestamp={timestamp} body={body}/>
+                        <Post id={id} key={id} blogpost_img={blogpost_img} title={title} description={description} cardImg={cardImg} timestamp={timestamp} body={body}/>
                     )
                 })
             }

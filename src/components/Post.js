@@ -5,11 +5,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { Grid } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { selectBlog } from '../features/appSlice';
 
-function Post({ title, description, blogpost_img, body, cardImg, timestamp }) {
+function Post({id, title, description, blogpost_img, body, cardImg, timestamp }) {
+  const dispatch = useDispatch();
+  const goToBlog = () => {
+    dispatch(selectBlog({
+      title: title,
+      body: body,
+      blogpost_img: blogpost_img,
+      timestamp: timestamp,
+      id: id,
+    }))
+  }
   return (
     <Grid item xs={12} sm={5} marginX={2}>
-    <Link to='/view-post' style={{all: 'unset', cursor: 'pointer'}}>
+    <Link to='/view-post' style={{all: 'unset', cursor: 'pointer'}} onClick={goToBlog}>
       <Card sx={6}>
         <CardMedia
           style={{ objectFit: 'contain' }}

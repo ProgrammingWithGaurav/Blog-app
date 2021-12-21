@@ -13,13 +13,13 @@ export const appSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    selectedBlog: (state, action) => {
-      state.selectedImage = action.payload;
+    selectBlog: (state, action) => {
+      state.selectedBlog = action.payload;
     }
   }
 })
 
-export const { login, logout, selectedBlog} = appSlice.actions;
+export const { login, logout, selectBlog} = appSlice.actions;
 export const selectUser = state => state.app.user;
 export const selectSelectedBlog = state => state.app.selectedBlog;
 export default appSlice.reducer;
