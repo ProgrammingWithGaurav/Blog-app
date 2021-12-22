@@ -11,6 +11,7 @@ function View() {
             <img src={selectedBlog.blogpost_img} />
             <Title>{selectedBlog.title}</Title>
             <Body>{selectedBlog.body}</Body>
+            <h2>Comments</h2>
         </Container>
     )
 }

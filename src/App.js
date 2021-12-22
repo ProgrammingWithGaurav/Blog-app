@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/appSlice';
 import { auth } from 'firebase';
 import Posts from './components/Posts';
+import Create from './components/Create';
 
 function App() {
   const user = useSelector(selectUser);
@@ -38,6 +39,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/posts' element={<Posts />} />
               <Route path='/view-post' element={<View />} />
+              <Route path='/create' element={<Create />} />
             </Routes>
 
           </>
