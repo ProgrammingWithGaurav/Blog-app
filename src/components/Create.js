@@ -25,7 +25,7 @@ function Create() {
             blogpost_img: blogpost_img,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
-        navigate('/chats')
+        navigate('/posts')
     }
     return (
         <div

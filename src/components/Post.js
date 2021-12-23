@@ -38,7 +38,7 @@ function Post({id, title, description, blogpost_img, body, cardImg, timestamp })
             {description}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {new Date(timestamp).toUTCString()}
+            {timestamp?.toDate().toLocaleDateString()}
           </Typography>
         </CardContent>
       </Card>
