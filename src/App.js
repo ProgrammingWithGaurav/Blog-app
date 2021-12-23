@@ -6,7 +6,7 @@ import Login from './components/Login';
 import View from './components/View';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/appSlice';
-import { auth } from 'firebase';
+import { auth } from './firebase.js';
 import Posts from './components/Posts';
 import Create from './components/Create';
 
@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    auth().onAuthStateChanged((authUser) => {
+    auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         dispatch(login({
           username: authUser.displayName,

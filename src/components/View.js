@@ -26,9 +26,9 @@ function View() {
                 }))))
         }
     }, [selectedBlog.id])
-
+    
     const sendComment = () => {
-        if (selectedBlog.id) {
+        if (selectedBlog.id && input !== '' ) {
             db.collection('blog_posts')
             .doc(selectedBlog.id)
             .collection('comments')
@@ -43,14 +43,15 @@ function View() {
     }
     return (
         <Container className='view'>
+            {console.log(comments)}
             <img src={selectedBlog.blogpost_img} />
             <Title>{selectedBlog.title}</Title>
             <Body>{selectedBlog.body}
                 <h1>{comments?.length} Comments found</h1>
                 <Comments>
-                    {comments.map(({ id, data: { displayName, userPic, timestamp, message } }) => {
+                    {comments.map(({ id, data: { displayName, userImg, timestamp, message } }) => {
                         return (
-                            <Comment key={id} displayName={displayName} userPic={userPic} timestamp={timestamp} message={message} />
+                            <Comment key={id} displayName={displayName} userImg={userImg} timestamp={timestamp} message={message} />
                         )
                     })}
                 </Comments>

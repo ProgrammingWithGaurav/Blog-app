@@ -2,13 +2,13 @@ import React from "react";
 import { Divider, Avatar, Grid, Paper } from "@mui/material";
 import ReactTimeAgo from 'react-timeago';
 
-function Comment({displayName, userPic, message, timestamp}) {
+function Comment({displayName, userImg, message, timestamp}) {
   return (
     <div style={{ padding: 14 }} className="App">
       <Paper style={{ padding: "40px 20px" }}>
         <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            <Avatar alt="Remy Sharp" src={userPic} />
+          <Grid item >
+            <Avatar alt="User Img" src={userImg} style={{width: '40px', height: '40px', objectFit: 'contain'}}/>
           </Grid>
           <Grid justifyContent="left" item xs zeroMinWidth>
             <h4 style={{ margin: 0, textAlign: "left" }}>{displayName}</h4>

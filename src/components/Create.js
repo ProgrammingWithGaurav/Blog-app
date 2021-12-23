@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -17,15 +17,17 @@ function Create() {
     const [body, setBody] = useState('');
 
     const sendPost = () => {
-        db.collection('blog_posts').add({
-            title: title,
-            description: description,
-            body: body,
-            cardImg: cardImg,
-            blogpost_img: blogpost_img,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        })
-        navigate('/posts')
+        if (title !== '' && description !== '' && cardImg !== '' && blogpost_img !== '' && body !== '') {
+            db.collection('blog_posts').add({
+                title: title,
+                description: description,
+                body: body,
+                cardImg: cardImg,
+                blogpost_img: blogpost_img,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            navigate('/posts')
+        }
     }
     return (
         <div
@@ -86,11 +88,11 @@ function Create() {
                     />
                 </Grid>
                 <Button
-                 variant='contained' 
-                 style={{
-                     margin: '20px'
-                 }}
-                 onClick={sendPost}
+                    variant='contained'
+                    style={{
+                        margin: '20px'
+                    }}
+                    onClick={sendPost}
                 >Post</Button>
             </Grid>
         </div>
