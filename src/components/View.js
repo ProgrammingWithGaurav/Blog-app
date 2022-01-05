@@ -7,6 +7,7 @@ import db from '../firebase';
 import { TextField, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import firebase from 'firebase';
+import Markdown from 'markdown-to-jsx';
 
 function View() {
     const [comments, setComments] = useState([]);
@@ -46,7 +47,8 @@ function View() {
             {console.log(comments)}
             <img src={selectedBlog.blogpost_img} />
             <Title>{selectedBlog.title}</Title>
-            <Body>{selectedBlog.body}
+            <Body>
+                <Markdown>{selectedBlog.body}</Markdown>
                 <h1>{comments?.length} Comments found</h1>
                 <Comments>
                     {comments.map(({ id, data: { displayName, userImg, timestamp, message } }) => {
