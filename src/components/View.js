@@ -14,6 +14,7 @@ function View() {
     const [input, setInput] = useState('');
     const selectedBlog = useSelector(selectSelectedBlog);
     const user = useSelector(selectUser);
+    const [claps, setClaps] = useState(selectedBlog.claps);
 
     useEffect(() => {
         if (selectedBlog.id) {
@@ -42,6 +43,13 @@ function View() {
         }
         setInput('');
     }
+    
+    const increaseClap = () => {
+        setClaps(claps + 1)
+        db.collection('blog_posts').doc(selectedBlog.id).update({
+            claps: claps + 1
+        })
+    }
     return (
         <Container className='view'>
             {console.log(comments)}
@@ -49,6 +57,11 @@ function View() {
             <Title>{selectedBlog.title}</Title>
             <Body>
                 <Markdown>{selectedBlog.body}</Markdown>
+                <span onClick={increaseClap} style={{
+                    border: '1px solid red',
+                    padding: '4px 8px',
+                    borderRadius: "40px"
+                }}>👋 {claps}</span>
                 <h1>{comments?.length} Comments found</h1>
                 <Comments>
                     {comments.map(({ id, data: { displayName, userImg, timestamp, message } }) => {

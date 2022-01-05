@@ -24,7 +24,8 @@ function Create() {
                 body: body,
                 cardImg: cardImg,
                 blogpost_img: blogpost_img,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                claps: 0
             })
             navigate('/posts')
         }

@@ -8,7 +8,7 @@ import { Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { selectBlog } from '../features/appSlice';
 
-function Post({id, title, description, blogpost_img, body, cardImg, timestamp }) {
+function Post({id, title, description, blogpost_img, body, cardImg, timestamp, claps }) {
   const dispatch = useDispatch();
   const goToBlog = () => {
     dispatch(selectBlog({
@@ -17,6 +17,7 @@ function Post({id, title, description, blogpost_img, body, cardImg, timestamp })
       blogpost_img: blogpost_img,
       timestamp: timestamp,
       id: id,
+      claps: claps
     }))
   }
   return (
